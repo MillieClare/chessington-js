@@ -10,6 +10,13 @@ export default class Bishop extends Piece {
     getAvailableMoves(board) {
         let currentSquare = board.findPiece(this);
         let availableMoves = [];
+        Bishop.moveDiagonally(currentSquare, availableMoves)
+        return availableMoves;
+    }
+
+
+
+    static moveDiagonally(currentSquare, availableMoves) {
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
                 let rowDifference = Math.abs(i - currentSquare.row);
@@ -22,8 +29,5 @@ export default class Bishop extends Piece {
                 }
             }
         }
-        return availableMoves;
     }
-
 }
-
