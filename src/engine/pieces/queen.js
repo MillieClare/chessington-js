@@ -6,6 +6,19 @@ export default class Queen extends Piece {
     }
 
     getAvailableMoves(board) {
-        return new Array(0);
+        let currentSquare = board.findPiece(this);
+        let availableMoves = [];
+        for(let i = 0; i < 8; i++){
+            for(let j = 0; j < 8; j++){
+                if(currentSquare.row === i && currentSquare.col === j){
+                    continue;
+                }
+                if (i === currentSquare.row || j === currentSquare.col){
+                    availableMoves.push(new Square (i, j))
+                } 
+            }
+        }
+        return availableMoves;
+    }
     }
 }
